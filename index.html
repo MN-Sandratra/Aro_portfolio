@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Asandratra</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Gestion du mode sombre
+        document.addEventListener("DOMContentLoaded", () => {
+            const themeToggle = document.getElementById("theme-toggle");
+            const html = document.documentElement;
+
+            // Charger le thème sauvegardé
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark") {
+                html.classList.add("dark");
+                themeToggle.checked = true; // Active le toggle si dark mode
+            } else {
+                html.classList.remove("dark");
+                themeToggle.checked = false;
+            }
+
+            // Basculer le thème
+            themeToggle.addEventListener("change", () => {
+                if (themeToggle.checked) {
+                    html.classList.add("dark");
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    html.classList.remove("dark");
+                    localStorage.setItem("theme", "light");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body class="bg-white dark:bg-[#020612] transition-colors duration-300">
+    <!-- Header/Navbar -->
+    <header class="fixed w-full top-0 z-50 bg-[#1E293B]/95 backdrop-blur-sm shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" class="text-2xl font-bold text-white">Asandratra</a>
+
+                <!-- Navigation Desktop -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <div class="flex space-x-6">
+                        <a href="#accueil" class="text-white hover:text-[#f59e0b] transition-colors">Accueil</a>
+                        <a href="#a-propos" class="text-white hover:text-[#f59e0b] transition-colors">À propos</a>
+                        <a href="#competences" class="text-white hover:text-[#f59e0b] transition-colors">Compétences</a>
+                        <a href="#formations" class="text-white hover:text-[#f59e0b] transition-colors">Formations</a>
+                        <a href="#experiences" class="text-white hover:text-[#f59e0b] transition-colors">Expériences</a>
+                    </div>
+
+                    <div class="flex items-center space-x-4 ml-6">
+                        <a href="mailto:asandratranytsiry@gmail.com" class="text-white hover:text-[#f59e0b]">
+                            <i class="fas fa-laptop text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/asandratra-aro-15b055182/" target="_blank"
+                         class="text-white hover:text-[#f59e0b]">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <button id="theme-toggle" class="text-white hover:text-[#f59e0b]">
+                            <i class="fas fa-sun text-xl dark:hidden"></i>
+                            <i class="fas fa-moon text-xl hidden dark:block"></i>
+                        </button>
+                    </div>
+                </nav>
+
+                <!-- Bouton menu mobile -->
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Menu Mobile -->
+            <div id="mobile-menu" class="hidden md:hidden py-4 bg-[#1E293B] rounded-lg mt-2">
+                <a href="#accueil" class="block text-white hover:bg-blue-500/20 px-4 py-2">Accueil</a>
+                <a href="#a-propos" class="block text-white hover:bg-blue-500/20 px-4 py-2">À propos</a>
+                <a href="#competences" class="block text-white hover:bg-blue-500/20 px-4 py-2">Compétences</a>
+                <a href="#experiences" class="block text-white hover:bg-blue-500/20 px-4 py-2">Expériences</a>
+                <a href="#formations" class="block text-white hover:bg-blue-500/20 px-4 py-2">Formations</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main>
+        <section id="accueil"
+            class="w-full h-[90vh] flex items-center justify-center bg-gray-150 dark:bg-[#020612] text-gray-800 dark:text-gray-200">
+            <div class="text-center space-y-8">
+                <!-- Titre avec animation -->
+                <h1 class="text-6xl font-bold title-wave">
+                    Bienvenue sur mon <span id="dynamic-word" class="text-[#f59e0b] animated-word">portfolio</span>
+                </h1>
+                <p class="text-xl max-w-2xl mx-auto leading-relaxed">
+                    Ensemble, créons des stratégies digitales qui renforcent votre présence en ligne, captivent votre audience et stimulent votre croissance avec des approches adaptées et efficaces.
+                </p>
+                <div class="space-y-4">
+                    <a href="fichier/CV_Aro_portfolio.pdf" target="_blank"
+                    class="mt-3 px-6 py-3 bg-[#1E293B] text-white font-semibold rounded-lg shadow-md hover:bg-[#f59e0b] zoom-btn" 
+                    style="border-radius: 20px;">
+                    Télécharger CV
+                 </a>
+                 
+                 
+                </div>
+            </div>
+        </section>
+        <section id="a-propos" class="w-full py-16 bg-gray-100 dark:bg-[#020612] text-gray-800 dark:text-gray-200">
+            <div class="container mx-auto px-6 lg:px-20 flex flex-col lg:flex-row items-center">
+                <!-- Texte à gauche -->
+                <div class="lg:lg:w-3/4 text-center lg:text-left">
+                    <h2 class="text-4xl font-bold mb-5">À propos de moi</h2>
+                    <p class="text-lg leading-relaxed mb-2 text-justify">
+                        Je m'appelle <span class="font-semibold text-[#f59e0b]">Asandratra NY TSIRY,</span>
+                          passionné par le <span class="font-semibold text-[#f59e0b]">marketing digital</span> et son impact sur la croissance des entreprises. À travers mon parcours, j'ai développé une expertise transversale mêlant <span class="font-semibold text-[#f59e0b]">stratégie digitale</span>, gestion de projet et innovation technologique.
+                        </P>
+                        <p class="text-lg leading-relaxed mb-2 text-justify">
+                            J'ai pu explorer des domaines clés comme le <b>SEO/SEA displays, l'inbound marketing, l'analyse et le développement web,</b> en maîtrisant les outils essentiels à ces disciplines pour optimiser la <b>visibilité et l'acquisition de trafic</b>. Grâce à ma maîtrise des CMS et des techniques de <b>création graphique</b>, je suis capable de concevoir des expériences digitales percutantes et engageantes.
+                        </P>
+                        <p class="text-lg leading-relaxed mb-2 text-justify">
+                            En parallèle, j'ai affiné mes compétences en <b>community management, en growth hacking et en marketing mobile (UX/UI)</b>, me permettant de construire et d'animer des communautés tout en déployant des stratégies de conversion efficaces.
+                            Toujours en quête d'innovation, je m'intéresse aux nouvelles technologies, notamment l'intelligence artificielle et le web décentralisé, qui façonnent l'avenir du digital.
+                        </P>
+                        <p class="text-lg leading-relaxed mb-2 text-justify">
+                            Mon objectif ? Concevoir des stratégies digitales innovantes et centrées sur l'utilisateur pour aider les entreprises à se démarquer et réussir dans un monde numérique en perpétuelle évolution.</P>
+                    
+                </div>
+
+                <!-- Photo à droite -->
+                <div class="lg:w-1/2 mt-8 lg:mt-0 flex justify-center lg:justify-end">
+                    <img src="images/Aro.jpg" alt="Ma photo"
+                        class="w-72 h-72 rounded-full object-cover shadow-lg border-2 border-blue-100 dark:border-blue-400">
+                </div>
+            </div>
+        </section>
+        <section id="competences" class="py-20 bg-white dark:bg-[#020612]">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+                    Mes Compétences
+                </h2>
+                
+                <!-- Filtres -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button class="skill-filter active" data-category="all">
+                        <i class="fas fa-globe mr-2"></i>Tous
+                    </button>
+
+                    <button class="skill-filter" data-category="languages">
+                        <i class="fas fa-language mr-2"></i>Langues
+                    </button>
+
+                    <button class="skill-filter" data-category="office">
+                        <i class="fas fa-file-word mr-2"></i>Pack office
+                    </button>
+
+                    <button class="skill-filter" data-category="google">
+                        <i class="fab fa-google mr-2"></i>Google workspace
+                    </button>
+
+                    <button class="skill-filter" data-category="data">
+                        <i class="fas fa-chart-line mr-2"></i>Data & Analyse
+                    </button>
+
+                    <button class="skill-filter" data-category="digital">
+                        <i class="fas fa-laptop mr-2"></i>Digital
+                    </button>
+
+                    <button class="skill-filter" data-category="design">
+                        <i class="fas fa-palette mr-2"></i>Design graphique, visuels
+                    </button>
+                    <button class="skill-filter" data-category="web">
+                        <i class="fas fa-code mr-2"></i>Dev Web
+                    </button>
+                    <button class="skill-filter" data-category="nocode">
+                        <i class="fas fa-ban mr-2"></i>No-code
+                    </button>
+                    <button class="skill-filter" data-category="video">
+                        <i class="fas fa-video mr-2"></i>Audio-visuel
+                    </button>
+                </div>
+
+                <!-- Grille des compétences -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Langues -->
+                    <div class="skill-card" data-category="languages">
+                        <div class="skill-card-inner">
+                            <div class="skill-icon-wrapper">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <h3>Langues</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">Français</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 100%"></div>
+                                    </div>
+                                    <span class="skill-value">Natif</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Anglais</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 85%"></div>
+                                    </div>
+                                    <span class="skill-value">Intermédiaire B1</span>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Google -->
+                    <div class="skill-card" data-category="google">
+                        <div class="skill-card-inner">
+                            <div class="skill-icon-wrapper">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <h3>Outils google</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">Communication & collaboration</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Productivité bureautique</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 90%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Stockage</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Agenda</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Google -->
+                    <div class="skill-card" data-category="data">
+                        <div class="skill-card-inner">
+                            <div class="skill-icon-wrapper">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Data & Analyse KPI's</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">MySql</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Intermédiaire</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Google Analytics</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Intermédiaire</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Google Tag Manager</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 90%"></div>
+                                    </div>
+                                    <span class="skill-value">Intermédiaire</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pack Office -->
+                    <div class="skill-card" data-category="office">
+                        <div class="skill-card-inner">
+                            <div class="skill-icon-wrapper">
+                                <i class="fas fa-file-word"></i>
+                            </div>
+                            <h3>Microsoft office 365</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">Word</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Avancé</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Excel</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 90%"></div>
+                                    </div>
+                                    <span class="skill-value">Avancé</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">PowerPoint</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Avancé</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">PowerBI</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Débutant</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Teams & Outlook</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Digital -->
+                    <div class="skill-card" data-category="digital">
+                        <div class="skill-card-inner">
+                            <div class="skill-icon-wrapper">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <h3>Digital : référencement & paid ads</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">SEO/Rédaction</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 100%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">SEA : google ads, meta</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 85%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Design graphique, visuel -->
+                    <div class="skill-card" data-category="design">
+                        <div class="skill-card-inner">
+                            <div class="skill-icon-wrapper">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3>UX/UI, design graphique, visuels</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">Photoshop</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Avancé</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Illustrator</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 90%"></div>
+                                    </div>
+                                    <span class="skill-value">Avancé</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">InDesign</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Avancé</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Figma</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Adobe Xd</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Vidéo -->
+                    <div class="skill-card" data-category="video">
+                        <div class="skill-card-inner">
+                            <div class="skill-icon-wrapper">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3>Audio-visuel : image, montage vidéo, son </h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">Adobe première</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Studio One</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 90%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Photographie</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 90%"></div>
+                                    </div>
+                                    <span class="skill-value">Notions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dev web -->
+                    <div class="skill-card" data-category="web">
+                        <div class="skill-card-inner">
+                            <div class="skill-icon-wrapper">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Dev web, code, languages</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">Html 5</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">CSS</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 90%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Javascript</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">Intermédiaire</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Python</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 95%"></div>
+                                    </div>
+                                    <span class="skill-value">débutant</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Nocode -->
+                    <div class="skill-card" data-category="nocode">
+                        <div class="skill-card-inner">
+                            <div class="skill-icon-wrapper">
+                                <i class="fas fa-ban"></i>
+                            </div>
+                            <h3>CMS, outils no-code</h3>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">WordPress</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 100%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Shopify</span>
+                                    <div class="skill-level">
+                                        <div class="skill-percent" style="width: 85%"></div>
+                                    </div>
+                                    <span class="skill-value">Bon</span>
+                                    </div>
+                                <div class="skill-item">
+                                        <span class="skill-name">Bubble</span>
+                                        <div class="skill-level">
+                                            <div class="skill-percent" style="width: 100%"></div>
+                                        </div>
+                                        <span class="skill-value">Intermédiaire</span>
+                                </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+
+
+                    <!-- Ajoutez d'autres cartes de compétences de la même manière -->
+                </div>
+            </div>
+        </section>
+
+        <section id="formations" class="py-20 bg-white dark:bg-[#020612]">
+            <div class="relative bg-cover bg-center h-64"
+                style="background-image: url('images/entreprise.jpg'); background-attachment: fixed;">
+                <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- Superposition sombre -->
+                <div class="relative z-10 flex items-center justify-center h-full">
+                <h2 class="text-4xl font-bold text-center mb-12 text-white">Parcours Académique</h2>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 mt-12">
+                
+                <!-- Timeline des formations -->
+                <div class="relative max-w-3xl mx-auto">
+                    <!-- Ligne verticale -->
+                    <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-blue-500"></div>
+                    
+                    <!-- Formations -->
+                    <div class="space-y-12">
+                        <!-- Formation 1 -->
+                        <div class="relative flex flex-col md:flex-row group">
+                            <div class="flex-grow md:w-1/2 ml-20 md:ml-0 md:pr-8">
+                                <div class="formation-card bg-gray-800 dark:bg-gray-200 p-6 rounded-xl shadow-lg">
+                                    <!-- Logo université -->
+                                    <div class="absolute -left-12 md:left-auto md:-right-12 top-0 w-24 h-24 bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                                        <img src="images/logoidrac.jpg" alt="Logo université" 
+                                             class="w-full h-full object-contain rounded-full">
+                                    </div>
+                                    
+                                    <span class="inline-block bg-[#f59e0b] text-gray-800 px-3 py-1 rounded-full text-sm mb-4">
+                                        2023 - 2025
+                                    </span>
+                                    <h3 class="text-xl font-bold text-white dark:text-white">MBA 2 en Marketing Digital (e-business, data & IA)</h3>
+                                    <p class="text-lg font-semibold text-[#f59e0b] mt-2">IDRAC Business School Montpellier</p>
+                                    <div class="mt-4 space-y-2 text-gray-100 dark:text-gray-300">
+                                        <p>Formation axée sur la stratégie digitale, l'UX/UI, le SEO/SEA, l’analyse de données marketing et l’intégration de l’intelligence artificielle dans les projets digitaux.</p>
+                                    </div>
+                                    <div class="mt-4 flex gap-2">
+                                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Alternance</span>
+                                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Contrat d'apprentissage (2 ans)</span>
+                                    </div>
+                                </div>
+                            </div>
+                           </div>
+
+                        <!-- Formation 2 -->
+                        <div class="relative flex flex-col md:flex-row group">
+                            <div class="flex-grow md:w-1/2 ml-20 md:ml-0 md:pr-8">
+                                <div class="formation-card bg-gray-800 dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                                    <!-- Logo université -->
+                                    <div class="absolute -left-12 md:left-auto md:-right-12 top-0 w-24 h-24 bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                                        <img src="images/logopaulvalery.jpg" alt="Logo université" 
+                                             class="w-full h-full object-contain rounded-full">
+                                    </div>
+                                    
+                                    <span class="inline-block bg-[#f59e0b] text-gray-800 px-3 py-1 rounded-full text-sm mb-4">
+                                        2022 - 2023
+                                    </span>
+                                    <h3 class="text-xl font-bold text-white dark:text-white">Licence en AES - Commerce et Affaires Internationales</h3>
+                                    <p class="text-lg font-semibold text-[#f59e0b] mt-2">Université Paul Valéry Montpellier III</p>
+                                    <div class="mt-4 space-y-2 text-gray-100 dark:text-gray-300">
+                                        <p>Formation pluridisciplinaire axée sur le commerce international, l’économie internationale, la négociation interculturelle, le marketing international et la gestion d'entreprise dans un contexte globalisé.</p>
+                                    </div>
+                                    <div class="mt-4 flex gap-2">
+                                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Formation initial</span>
+                                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">1 an</span>
+                                    </div>
+                                </div>
+                            </div>
+                           </div>
+
+                        <!-- Formation 3 -->
+                        <div class="relative flex flex-col md:flex-row group">
+                            <div class="flex-grow md:w-1/2 ml-20 md:ml-0 md:pr-8">
+                                <div class="formation-card bg-gray-800 dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                                    <!-- Logo université -->
+                                    <div class="absolute -left-12 md:left-auto md:-right-12 top-0 w-24 h-24 bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                                        <img src="images/IST.jpg" alt="Logo université" 
+                                             class="w-full h-full object-contain rounded-full">
+                                    </div>
+                                    
+                                    <span class="inline-block bg-[#f59e0b] text-gray-800 px-3 py-1 rounded-full text-sm mb-4">
+                                        2021 - 2022
+                                    </span>
+                                    <h3 class="text-xl font-bold text-white dark:text-white">Licence en Marketing International et Commerce Extérieur</h3>
+                                    <p class="text-lg font-semibold text-[#f59e0b] mt-2">Institut Supérieur de Technologie Madagascar</p>
+                                    <div class="mt-4 space-y-2 text-gray-100 dark:text-gray-300">
+                                        <p>Formation spécialisée en fiscalité du commerce extérieur, logistique internationale, e-marketing, gestion des opérations de transit et stratégies de développement à l’international.</p>
+                                    </div>
+                                    <div class="mt-4 flex gap-2">
+                                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Formation initial</span>
+                                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">1 an</span>
+                                    </div>
+                                </div>
+                            </div>
+                           </div>
+                        <!-- Formation 4 -->
+                        <div class="relative flex flex-col md:flex-row group">
+                            <div class="flex-grow md:w-1/2 ml-20 md:ml-0 md:pr-8">
+                                <div class="formation-card bg-gray-800 dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                                    <!-- Logo université -->
+                                    <div class="absolute -left-12 md:left-auto md:-right-12 top-0 w-24 h-24 bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                                        <img src="images/IST.jpg" alt="Logo université" 
+                                             class="w-full h-full object-contain rounded-full">
+                                    </div>
+                                    
+                                    <span class="inline-block bg-[#f59e0b] text-gray-800 px-3 py-1 rounded-full text-sm mb-4">
+                                        2018 - 2020
+                                    </span>
+                                    <h3 class="text-xl font-bold text-white dark:text-white">BTS en Marketing et Commerce</h3>
+                                    <p class="text-lg font-semibold text-[#f59e0b] mt-2">Institut Supérieur de Technologie Madagascar</p>
+                                    <div class="mt-4 space-y-2 text-gray-100 dark:text-gray-300">
+                                        <p>Formation axée sur le marketing des services, la promotion commerciale, la fiscalité, les relations économiques internationales, la gestion juridique et la logistique (transit et douane). Développement de compétences en gestion de projet, analyse de données, systèmes d’information.</p>
+                                    </div>
+                                    <div class="mt-4 flex gap-2">
+                                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Formation initial</span>
+                                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">2 ans</span>
+                                    </div>
+                                </div>
+                            </div>
+                           </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="experiences" class="w-full py-16 bg-gray-100 dark:bg-[#020612] text-gray-800 dark:text-gray-200">
+            <!-- Bande de couverture -->
+            <div class="relative bg-cover bg-center h-64"
+                style="background-image: url('images/entreprise.jpg'); background-attachment: fixed;">
+                <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- Superposition sombre -->
+                <div class="relative z-10 flex items-center justify-center h-full">
+                    <h2 class="text-4xl font-bold text-white">Expériences professionnelles</h2>
+                </div>
+            </div>
+
+            <!-- Cartes des expériences -->
+            <div class="container mx-auto px-6 lg:px-20 mt-12 space-y-12">
+                <!-- Carte d'expérience 1 -->
+                <div
+                    class="flex flex-col lg:flex-row items-center bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
+                    <div class="flex justify-center items-center w-full h-full">
+                        <img src="images/Citroen_2022.png" alt="Company 1 Logo" class="w-32 h-32 object-contain">
+                    </div>
+                    <div class="w-4/4 lg:w-4/4 p-10">
+                        <h3 class="text-2xl font-semibold mb-2">Alternance - Chargé de marketing digital & administration</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Octobre 2023 - à ce jour</p>
+                        <p class="text-lg leading-relaxed">
+                            Participation à la stratégie digitale du garage : coordination des actions marketing, optimisation UX/UI dans le cadre de la digitalisation des devis, gestion du site web et des réseaux sociaux, pilotage de campagnes SEO/SEA et actions de webmarketing pour améliorer la visibilité et l’engagement client.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Carte d'expérience 2 -->
+                <div
+                    class="flex flex-col lg:flex-row items-center bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
+                    <div class="flex justify-center items-center w-full h-full">
+                        <img src="images/galana.png" alt="Company 1 Logo" class="w-50 h-50 object-contain">
+                    </div>
+            
+                    <div class="w-4/4 lg:w-4/4 p-10">
+                        <h3 class="text-2xl font-semibold mb-2">Stage en Merchandising et Communication</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Avril - Septembre 2022</p>
+                        <p class="text-lg leading-relaxed">
+                            Intervention sur l’agencement et l’optimisation des rayons, gestion des stocks, conception de supports visuels (PLV, signalétiques, promotions) et participation à la création de contenus audiovisuels pour appuyer la stratégie de communication en point de vente.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Carte d'expérience 3 -->
+                <div
+                    class="flex flex-col lg:flex-row items-center bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
+                    <div class="flex justify-center items-center w-full h-full">
+                        <img src="images/lemurpay.png" alt="Company 1 Logo" class="w-40 h-40 object-contain">
+                    </div>
+                    <div class="w-4/4 lg:w-4/4 p-10">
+                        <h3 class="text-2xl font-semibold mb-2">Responsable marketing digital</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Mars - Septembre 2021 (+ stage 2 mois)</p>
+                        <p class="text-lg leading-relaxed">
+                            Définition et mise en œuvre de stratégies digitales : SEO/SEA, optimisation UX/UI, gestion des réseaux sociaux, création de contenus visuels, marketing automation. Réalisation d’une veille concurrentielle et suivi de la performance des campagnes marketing via des outils d’analyse.
+                        </p>
+                    </div>
+                </div>
+                <!-- Carte d'expérience 4 -->
+                <div
+                    class="flex flex-col lg:flex-row items-center bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
+                    <div class="flex justify-center items-center w-full h-full">
+                        <img src="images/Orange.png" alt="Company 1 Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div class="w-4/4 lg:w-4/4 p-10">
+                        <h3 class="text-2xl font-semibold mb-2">Stage en marketing événementiel</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Juillet – Septembre 2019</p>
+                        <p class="text-lg leading-relaxed">
+                            Contribution à la mise en œuvre d’actions événementielles : animation commerciale, gestion des supports promotionnels, création de visuels, suivi des stocks de PLV, coordination des opérations de communication sur le terrain.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="projets" class="w-full py-16 bg-gray-100 dark:bg-[#020612] text-gray-800 dark:text-gray-200">
+            <div class="container mx-auto px-6 lg:px-20">
+                <h2 class="text-4xl font-bold text-center mb-12">Projets</h2>
+                <!-- Carrousel -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <img src="images/projets/P1.jpg" alt="Affiche 1">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <img src="images/projets/P2.jpg" alt="Affiche 2">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <img src="images/projets/P3.jpg" alt="Affiche 3">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <img src="images/projets/P4.jpg" alt="Affiche 3">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <img src="images/projets/P5.JPG" alt="Affiche 3">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <img src="images/projets/P6.JPG" alt="Affiche 3">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <img src="images/projets/P7.jpg" alt="Affiche 3">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <img src="images/projets/P8.jpg" alt="Affiche 3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="w-full bg-[#020612] text-gray-200 py-12">
+            <div class="container mx-auto px-6 lg:px-20">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Colonne Informations -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-[#f59e0b]">Contact</h3>
+                        <p class="text-sm mb-2">📍 Adresse : Montpellier, France</p>
+                        <p class="text-sm mb-2">📞 Téléphone : +33 7 58 85 36 88</p>
+                        <p class="text-sm">📧 Email : <a href="mailto:asandratranytsiry@gmail.com"
+                                class="text-[#f59e0b] hover:underline">asandratranytsiry@gmail.com</a></p>
+                    </div>
+
+                    <!-- Colonne Réseaux Sociaux -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-[#f59e0b]">Réseaux Sociaux</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://www.linkedin.com/in/asandratra-aro-15b055182/" target="_blank"
+                                class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-[#f59e0b] rounded-full">
+                                <img src="images/linkedin.png" alt="LinkedIn" class="w-6 h-6">
+                            </a>
+                            <a href="mailto:asandratranytsiry@email.com"
+                                class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-[#f59e0b] rounded-full">
+                                <img src="images/mail.png" alt="Mail" class="w-6 h-6">
+                            </a>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <!-- Copyright -->
+                <div class="mt-12 text-center text-sm text-gray-500">
+                    &copy; 2025 Asandratra Ny Tsiry. Tous droits réservés.
+                </div>
+            </div>
+        </footer>
+    </main>
+    <script src="./main.js"></script>
+    <script>
+        // Script pour gérer les onglets avec mode sombre/clair
+        document.addEventListener("DOMContentLoaded", () => {
+            const buttons = document.querySelectorAll(".skill-filter");
+            const items = document.querySelectorAll(".skill-card");
+
+            buttons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const category = button.getAttribute("data-category");
+
+                    // Mettre à jour les styles des boutons actifs/inactifs
+                    buttons.forEach((btn) => {
+                        btn.classList.remove("bg-blue-500", "text-white");
+                        btn.classList.add("bg-gray-800", "text-gray-300", "dark:bg-gray-700");
+                    });
+                    button.classList.add("bg-blue-500", "text-white", "dark:bg-blue-500", "dark:text-white");
+
+                    // Afficher ou masquer les compétences
+                    items.forEach((item) => {
+                        if (category === "all" || item.classList.contains(category)) {
+                            item.classList.remove("hidden");
+                        } else {
+                            item.classList.add("hidden");
+                        }
+                    });
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const dynamicWord = document.getElementById("dynamic-word");
+            const words = ["portfolio", "site web"];
+            let index = 0;
+
+            const changeWord = () => {
+                // Étape 1 : Disparition du mot actuel
+                dynamicWord.classList.add("word-out");
+
+                setTimeout(() => {
+                    // Étape 2 : Mise à jour du texte et préparation de l'apparition
+                    index = (index + 1) % words.length;
+                    dynamicWord.textContent = words[index];
+                    dynamicWord.style.color = index === 0 ? "#f59e0b" : "#f59e0b"; // Bleu ou Jaune
+
+                    dynamicWord.classList.remove("word-out");
+                    dynamicWord.classList.add("word-in");
+
+                    setTimeout(() => {
+                        // Étape 3 : Afficher le mot après l'animation d'apparition
+                        dynamicWord.classList.remove("word-in");
+                        dynamicWord.classList.add("word-visible");
+                    }, 500); // Correspond à la durée de l'animation
+                }, 500); // Attendre la fin de la disparition avant de changer le mot
+            };
+
+            // Démarrer l'intervalle pour changer les mots toutes les 5 secondes
+            setInterval(changeWord, 3000);
+        });
+
+        const swiper = new Swiper(".mySwiper", {
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+    
+</body>
+
+</html>

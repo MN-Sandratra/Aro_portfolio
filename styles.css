@@ -1,0 +1,1043 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F9FAFB; /* Couleur de fond douce */
+    color: #1F2937; /* Couleur de texte principale */
+}
+#accueil {
+    background: url("images/background.jpg") no-repeat center center/cover;
+    height: 100vh; /* Ajuste la hauteur */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#accueil h1, #accueil p {
+    color: white; /* Rend le titre principal blanc */
+}
+
+/* Ondulation du titre */
+.title-wave {
+    display: inline-block;
+    animation: wave 2s infinite;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+/* Animation pour disparition et apparition */
+.animated-word {
+    display: inline-block;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.word-out {
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+.word-in {
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.word-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+    /* Ajout d'effets pour la navbar */
+    header {
+        transition: background-color 0.3s ease-in-out;
+    }
+    nav ul li a {
+        position: relative;
+        transition: color 0.3s ease-in-out;
+    }
+    nav ul li a:hover::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        transition: width 0.3s ease-in-out;
+    }
+    .active {
+        background-color: #374151;
+        color: white;
+    }
+    .zoom-btn {
+        transition: transform 0.3s ease-in-out;
+        border-radius: 20px;
+        display: inline-block;
+    }
+    
+    .zoom-btn:hover {
+        transform: scale(1.1); /* Zoom de 10% */
+    }
+    #a-propos p {
+        text-indent: 3em; /* Ajoute un alinéa de 2 fois la taille de la lettre "M" */
+    }
+
+/* Navigation */
+.nav-link {
+    color: #1F2937; /* Couleur de texte principale */
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #3B82F6; /* Couleur de survol */
+}
+
+.mobile-nav-link {
+    display: block;
+    color: #D1D5DB; /* gray-300 */
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.mobile-nav-link:hover {
+    color: white;
+    background-color: #2A3B52;
+}
+
+.social-icon {
+    color: #D1D5DB;
+    transition: color 0.2s;
+}
+
+.social-icon:hover {
+    color: white;
+}
+
+/* Bouton thème */
+.theme-toggle-btn {
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+    background-color: #E5E7EB; /* gray-200 */
+}
+
+/* Boutons de filtre */
+.tab-button {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    background-color: #E5E7EB; /* Couleur de fond douce */
+    color: #1F2937; /* Couleur de texte principale */
+    transition: all 0.2s;
+}
+
+.tab-button:hover {
+    background-color: #f59e0b; /* Couleur de survol */
+    color: white;
+}
+
+.tab-button.active {
+    background-color: #f59e0b;
+    color: white;
+}
+
+/* Animation du menu mobile */
+#mobile-menu {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .tab-button {
+        font-size: 0.875rem; /* text-sm */
+        padding: 8px 16px;
+    }
+}
+
+/* Compétences */
+.skill-filter {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background-color: #FFFFFF; /* Couleur de fond blanche */
+    color: #1F2937; /* Couleur de texte principale */
+    border: 1px solid #E5E7EB; /* Bordure douce */
+    transition: all 0.3s ease-in-out;
+    transform: translateY(0);
+}
+
+.skill-filter:hover {
+    background-color:#f59e0b; /* Couleur de survol */
+    color: white;
+    transform: translateY(-4px);
+}
+
+.skill-filter.active {
+    background-color: #f59e0b;
+    color: white;
+    border-color: #f59e0b;
+}
+
+.skill-card {
+    position: relative;
+    transition: all 0.3s;
+}
+
+.skill-card-inner {
+    background-color: #FFFFFF; /* Couleur de fond blanche */
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #E5E7EB; /* Bordure douce */
+    transition: all 0.3s;
+}
+
+.skill-card-inner:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+}
+
+.skill-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    background: linear-gradient(to bottom right, #3B82F6, #2563EB); /* Dégradé de couleur */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.skill-card-inner h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: #1F2937; /* Couleur de texte principale */
+}
+
+.skill-list {
+    margin-top: 16px;
+}
+
+.skill-item {
+    margin-bottom: 8px;
+}
+
+.skill-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.skill-level {
+    height: 8px;
+    background-color: #F3F4F6;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.skill-percent {
+    height: 100%;
+    background: linear-gradient(to right, #3B82F6, #2563EB);
+    border-radius: 9999px;
+    transition: width 1s;
+    animation: skillProgress 1.5s ease-out forwards;
+}
+
+.skill-value {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #3B82F6;
+    float: right;
+    margin-top: 4px;
+}
+
+@keyframes skillProgress {
+    from { width: 0; }
+}
+
+/* Hover effects */
+.skill-card-inner:hover .skill-icon-wrapper {
+    background: linear-gradient(to bottom right, #2563EB, #1D4ED8);
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skill-filter {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+    }
+    
+    .skill-card-inner {
+        padding: 16px;
+    }
+    
+    .skill-icon-wrapper {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+    
+    .skill-card-inner h3 {
+        font-size: 1rem;
+        margin-bottom: 16px;
+    }
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 640px) {
+    .tab-button {
+        width: 100%;
+    }
+    
+    .skill-card {
+        width: 100%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skill-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .formation-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .formation-date {
+        margin-bottom: 16px;
+        text-align: center;
+    }
+}
+
+/* Styles pour les formations */
+.formation-card {
+    @apply transform transition-all duration-300;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.formation-card:hover {
+    @apply -translate-y-2;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Animation d'entrée */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.formation-card {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Styles pour les logos */
+.formation-card img {
+    filter: grayscale(0);
+    transition: all 0.3s ease;
+}
+
+.formation-card:hover img {
+    filter: grayscale(0);
+    transform: scale(1.05);
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 768px) {
+    .formation-card {
+        margin-bottom: 2rem;
+    }
+    
+    /* Ajustements pour la timeline en mobile */
+    .timeline-vertical-line {
+        left: 2rem;
+    }
+    
+    .formation-card {
+        margin-left: 1rem;
+        width: calc(100% - 3rem);
+    }
+}
+
+/* Animation des badges de compétences */
+.formation-card span {
+    @apply transform transition-all duration-300;
+}
+
+.formation-card:hover span {
+    @apply scale-105;
+}
+
+/* Styles améliorés pour les compétences */
+.skills-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.skills-section::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.skills-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #1F2937;
+    text-align: center;
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.skills-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #3B82F6, #2563EB);
+    border-radius: 2px;
+}
+
+.skill-filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.skill-filter {
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background-color: #FFFFFF;
+    color: #1F2937;
+    border: 1px solid #E5E7EB;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.skill-filter:hover {
+    background-color: #f59e0b;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.2);
+}
+
+.skill-filter.active {
+    background: linear-gradient(to right, #3B82F6, #2563EB);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.25);
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.skill-card {
+    position: relative;
+    transition: all 0.4s;
+}
+
+.skill-card-inner {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid rgba(229, 231, 235, 0.7);
+    transition: all 0.4s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-card-inner:hover {
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-10px);
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.skill-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #3B82F6, #2563EB);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.75rem;
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.25);
+    transition: all 0.4s;
+}
+
+.skill-card-inner:hover .skill-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+    box-shadow: 0 12px 20px rgba(37, 99, 235, 0.3);
+}
+
+.skill-card-inner h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #1F2937;
+    transition: color 0.3s;
+}
+
+.skill-card-inner:hover h3 {
+    color: #f59e0b;
+}
+
+.skill-list {
+    margin-top: 20px;
+    flex-grow: 1;
+}
+
+.skill-item {
+    margin-bottom: 16px;
+}
+
+.skill-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #4B5563;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.skill-level {
+    height: 8px;
+    background-color: #F3F4F6;
+    border-radius: 9999px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.skill-percent {
+    height: 100%;
+    background: linear-gradient(to right, #3B82F6, #2563EB);
+    border-radius: 9999px;
+    transition: width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: skillProgress 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+}
+
+.skill-value {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #3B82F6;
+    margin-left: 8px;
+}
+
+@keyframes skillProgress {
+    0% { width: 0; }
+    100% { width: var(--percent, 0%); }
+}
+
+/* Animation des icônes de vérification */
+.formation-card li {
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.formation-card li:hover {
+    opacity: 1;
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 768px) {
+    .formation-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .formation-card .relative {
+        height: 200px;
+    }
+}
+
+@media (max-width: 640px) {
+    .formation-card .relative {
+        height: 150px;
+    }
+    
+    .formation-card h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Styles pour le portfolio */
+.portfolio-filter {
+    @apply px-6 py-2 rounded-full text-sm font-medium transition-all duration-300;
+    @apply bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300;
+    @apply hover:bg-blue-500 hover:text-white;
+    @apply border border-gray-200 dark:border-gray-700;
+}
+
+.portfolio-filter.active {
+    @apply bg-blue-500 text-white border-blue-500;
+}
+
+.portfolio-item {
+    @apply transform transition-all duration-300 hover:-translate-y-2;
+}
+
+/* Styles pour les formations */
+.formation-card {
+    @apply transform transition-all duration-300;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.formation-card:hover {
+    @apply -translate-y-2;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 768px) {
+    /* Timeline responsive */
+    .timeline-container {
+        @apply flex-col;
+    }
+    
+    .timeline-container::before {
+        left: 0;
+    }
+    
+    .formation-card {
+        @apply w-full ml-8;
+    }
+    
+    /* Ajustements portfolio */
+    .portfolio-filter {
+        @apply text-xs px-4;
+    }
+}
+
+@media (max-width: 640px) {
+    .formation-card h3 {
+        @apply text-lg;
+    }
+    
+    .portfolio-item {
+        @apply col-span-1;
+    }
+}
+
+/* Styles généraux pour la section formations */
+#formations {
+    padding: 5rem 0;
+    background-color: #ffffff;
+}
+
+.dark #formations {
+    background-color: #020612;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Titre de la section */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #1f2937;
+    letter-spacing: -0.5px;
+}
+
+.dark .section-title {
+    color: #ffffff;
+}
+
+/* Timeline */
+.timeline-container {
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 2rem;
+    height: 100%;
+    width: 1px;
+    background: linear-gradient(to bottom, 
+        rgba(59, 130, 246, 0.2),
+        rgba(59, 130, 246, 0.8),
+        rgba(59, 130, 246, 0.2)
+    );
+}
+
+@media (min-width: 768px) {
+    .timeline-line {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Cartes de formation */
+.formation-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-left: 5rem;
+    margin-bottom: 3rem;
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.02),
+        0 10px 15px rgba(0, 0, 0, 0.03),
+        0 20px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .formation-card {
+    background: rgba(31, 41, 55, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.formation-card:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.04),
+        0 20px 30px rgba(0, 0, 0, 0.06),
+        0 30px 45px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo université */
+.university-logo {
+    position: absolute;
+    left: -3rem;
+    top: 1rem;
+    width: 5rem;
+    height: 5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 0.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .university-logo {
+    background: rgba(31, 41, 55, 0.9);
+}
+
+.formation-card:hover .university-logo {
+    transform: scale(1.05) translateY(-0.25rem);
+}
+
+.university-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Date */
+.formation-date {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+/* Titre formation */
+.formation-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+}
+
+.dark .formation-title {
+    color: #ffffff;
+}
+
+/* Nom université */
+.university-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+/* Liste des points clés */
+.formation-details {
+    margin-top: 1.5rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.dark .formation-details {
+    color: #d1d5db;
+}
+
+.formation-details p {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.formation-details p::before {
+    content: "→";
+    color: #3b82f6;
+    font-weight: bold;
+}
+
+/* Badges de compétences */
+.skills-badges {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.skill-badge {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.dark .skill-badge {
+    background: rgba(59, 130, 246, 0.2);
+    color: #93c5fd;
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.skill-badge:hover {
+    transform: translateY(-2px);
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.formation-card {
+    animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .formation-card {
+        margin-left: 4rem;
+        width: calc(100% - 4rem);
+        padding: 1.5rem;
+    }
+
+    .university-logo {
+        width: 4rem;
+        height: 4rem;
+        left: -2rem;
+        border-radius: 10px;
+    }
+
+    .timeline-line {
+        left: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .formation-title {
+        font-size: 1.25rem;
+    }
+
+    .university-name {
+        font-size: 1rem;
+    }
+
+    .formation-card {
+        padding: 1.25rem;
+        margin-left: 3rem;
+    }
+}
+
+/* Styles pour le carrousel Swiper */
+.swiper {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+.project-card {
+    width: 90%;
+    max-width: 900px;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: transparent;
+}
+
+/* Nouvelles couleurs pour les compétences */
+.skill-card {
+    background: linear-gradient(145deg, #ffffff, #f3f4f6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .skill-card {
+    background: linear-gradient(145deg, #1f2937, #111827);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-icon-wrapper {
+    background: linear-gradient(135deg, #4f46e5, #3b82f6);
+    color: white;
+}
+
+.skill-progress-bar {
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.dark .skill-progress-bar {
+    background-color: #374151;
+}
+
+.skill-progress-value {
+    background: linear-gradient(to right, #4f46e5, #3b82f6);
+    transition: width 1s ease-in-out;
+}
+
+.skill-tag {
+    background-color: #f3f4f6;
+    color: #4f46e5;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.dark .skill-tag {
+    background-color: #374151;
+    color: #93c5fd;
+}
+
+.skill-tag:hover {
+    background-color: #4f46e5;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .swiper {
+        height: 400px;
+    }
+    
+    .project-card {
+        height: 350px;
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .swiper {
+        height: 300px;
+    }
+    
+    .project-card {
+        height: 250px;
+    }
+}
