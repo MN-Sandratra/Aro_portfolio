@@ -7,6 +7,14 @@ body {
     background-color: #F9FAFB; /* Couleur de fond douce */
     color: #1F2937; /* Couleur de texte principale */
 }
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('font/Montserrat-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
 #accueil {
     background: url("images/background.jpg") no-repeat center center/cover;
     height: 100vh; /* Ajuste la hauteur */
